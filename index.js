@@ -25,6 +25,7 @@ FILTROS PROXIMOS (en aproximadamente 2 semanas):
 - Si preguntan por estos sabores, diles que estaran disponibles muy pronto y que los contactaran cuando esten listos
 
 COMO COMPRAR - PICKUP (opcion principal):
+-Tenemos pagina de instagram zeroairmx es el perfil y pagina web zeroair.mx
 - Restaurante Saigon, Juan de Onate 620, frente a la Casa de la Cultura, San Luis Potosi. Horario: 11am a 10pm todos los dias
 - Restaurante La Viga, Cordillera Oriental 430, frente al Oxxo. Horario: 2pm a 11pm todos los dias
 - Formas de pago: tarjeta de credito y efectivo (no transferencias)
