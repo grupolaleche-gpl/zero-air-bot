@@ -104,7 +104,8 @@ app.post("/webhook", async (req, res) => {
     if (historial.length > 20) historial.splice(0, 2);
 
     const esPedido = respuesta.includes("##PEDIDO_DOMICILIO##");
-    respuesta = respuesta.replace("##PEDIDO_DOMICILIO##", "").trim();
+const esPreguntaSinRespuesta = respuesta.includes("##PREGUNTA_SIN_RESPUESTA##");
+respuesta = respuesta.replace("##PEDIDO_DOMICILIO##", "").replace("##PREGUNTA_SIN_RESPUESTA##", "").trim();
 
     await enviarMensaje(telefono, respuesta);
     console.log("Respuesta enviada a " + telefono);
@@ -117,7 +118,12 @@ app.post("/webhook", async (req, res) => {
       await enviarMensaje(CONFIG.NUMERO_ANDRES, notificacion);
       console.log("Notificacion enviada a Andres");
     }
-
+ if (esPreguntaSinRespuesta) {
+      const ultimaPregunta = historial.filter(m => m.role === "user").slice(-1)[0]?.content || "pregunta desconocida";
+      const alerta = "ALERTA Zero Air - Pregunta sin respuesta\nCliente: " + telefono + "\nPregunta: " + ultimaPregunta;
+      await enviarMensaje(CONFIG.NUMERO_ANDRES, alerta);
+      console.log("Alerta enviada a Andres");
+    }
   } catch (error) {
     console.error("Error:", error.response?.data || error.message);
   }
